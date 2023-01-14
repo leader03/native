@@ -15,7 +15,7 @@ const Home = () => {
               showsVerticalScrollIndicator={false}
               ListHeaderComponent={<HomeHeader />}
             />
-          </View>
+          </View> 
 
           <View style={{
             position:'absolute',
