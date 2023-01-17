@@ -3,9 +3,11 @@ import { useNavigation } from '@react-navigation/native'
 import { COLORS, SIZES, SHADOWS,assets } from '../constants'
 import { CircleButton,RectButton } from './Button'
 import { SubInfo, EthPrice, NFTTitle } from './SubInfo'
+import { useState } from 'react'
 
 const NFTCard = ({data}) => {
     const navigation = useNavigation()
+    const [value,setValue] = useState(false)
   return (
     <View style={{
         backgroundColor: COLORS.white,
@@ -14,7 +16,7 @@ const NFTCard = ({data}) => {
         margin: SIZES.base,
         ...SHADOWS.dark
     }}>
-      <View style={{width:'100%', height:250}}>
+      <View style={{width:'100%', height:250}} >
         <Image 
         source={data.image}
         resizeMode="cover"
@@ -26,7 +28,7 @@ const NFTCard = ({data}) => {
         }}
         />
 
-            <CircleButton imgUrl={assets.heart} right={10} top={10} />
+            <CircleButton imgUrl={value ? `${assets.heart}` : `${assets.greyheart}`} handlePress={()=>setValue(!value)} right={10} top={10} />
 
       </View>
       <SubInfo />
